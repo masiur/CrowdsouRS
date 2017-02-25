@@ -5,7 +5,9 @@
   "description": "Goal is to take user review for online contents",
   "version": "1.0",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "https://sustcse12.xyz/api/trs/post",
+    "https://sustcse12.xyz/api/trs/show"
   ],
 
   // "content_scripts": [
