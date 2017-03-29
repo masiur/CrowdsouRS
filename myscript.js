@@ -40,7 +40,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     });
 
     $("#submit").click(function(e){
-        // e.preventDefault();
+        e.preventDefault();
 
         var formData = $('form#formOfRating').serialize();
         var gg = $('form#formOfRating').find('input[name="rating"]:checked').val();
