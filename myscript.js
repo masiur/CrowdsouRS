@@ -7,14 +7,14 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     var currentUrl = tabs[0].url;
     document.getElementById('url').innerHTML = currentUrl;
     // alert(url);
-    var apiUrlToHit = "https://sustcse12.xyz/api/v1/trs/";
+    var apiUrlToHit = "https://sustcse12.xyz/api/trs/show";
     var linkToBeSent = encodeURIComponent(currentUrl);
     var finalURL = apiUrlToHit+linkToBeSent;
     console.log(finalURL);
     $.ajax({
 	    url:  finalURL,
 	    dataType: "json",
-	    type : "GET",
+	    type : "POST",
 	    success : function(response) {
 	      console.log(response);
 	      document.getElementById('score').innerHTML = response.score;
@@ -46,7 +46,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
                     var $form = $(this);
                     // var $target = $($form.attr('data-target'));
-                    var apiUrlToHit = "https://sustcse12.xyz/api/v1/trs/store";
+                    var apiUrlToHit = "https://sustcse12.xyz/api/trs/post";
                     var dataToBeSent = $('form#formOfRating').serialize();
                     console.log(dataToBeSent);
                     // $.ajax({
@@ -75,3 +75,21 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
                 //         // }
                 //     }); // end of ajax
                 }); // end of submit button click 
+
+
+
+
+/**
+ * Built with the jQuery plugin that was born as a result of the great dribble shot
+ * http://rendro.github.io/easy-pie-chart/
+ **/
+$('.percentage').easyPieChart({
+  animate: 1000,
+  lineWidth: 4,
+  onStep: function(value) {
+    this.$el.find('span').text(Math.round(value));
+  },
+  onStop: function(value, to) {
+    this.$el.find('span').text(Math.round(to));
+  }
+});
