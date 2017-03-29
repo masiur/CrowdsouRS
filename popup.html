@@ -1,99 +1,77 @@
 <!DOCTYPE html>
-<html lang=en>
+<html>
 
 <head>
-    <meta charset=UTF-8>
     <title>Trust & Reputation System</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="myscript.js"></script>
-
-    
-    <script type="text/javascript" src="/path/to/jquery.easy-pie-chart.js"></script>
-
-    <link rel="stylesheet"type="text/css" href="/path/to/jquery.easy-pie-chart.css">
-
-
-    <link rel=stylesheet href=styles/bundle.css> 
-    <link rel=stylesheet href=styles/mystyle.css> 
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="myscript.js"></script>
+    <link rel="stylesheet" href="styles/bundle.css">
+    <link rel="stylesheet" href="styles/mystyle.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
-    
 
 <body>
-    <div class=header> <img id=popupIcon src=icon.png alt=icon>
+
+    <div class="header">
+        <img id="popupIcon" src="icon.png" alt="icon">
         <h1>Trust & Reputation System</h1>
     </div>
+
+
     <div class="search box">
-         <span id="url"></span>
-        
+        <span id="url"></span>
     </div>
-    
+
+
+
     <div class="kconnect box">
-        <h2 id=host></h2>
+        <h2 id="host"></h2>
 
 
-        <div class=left>
-        <fieldset>
-          <legend>Rate this URL:</legend>
-          <form  action="" id="formOfRating">
-                  <input type="radio" name="rating" value="1"> Deceptive <br>
-                  <input type="radio" name="rating" value="2"> Bad       <br>
-                  <input type="radio" name="rating" value="3"> Average   <br>
-                  <input type="radio" name="rating" value="4"> Good      <br>
-                  <input type="radio" name="rating" value="5"> Trusted   <br>
-                  <input type="submit" id="submit">
-            </form> 
-
-        </fieldset>
+        <div class="left">
+            <fieldset>
+                <legend>Rate this URL:</legend>
+                <div id="formDiv">
+                    <form action="https://sustcse12.xyz/api/trs" method="post" id="formOfRating">
+                        <!-- <input type="_hidden" name="link"> -->
+                        <input type="radio" name="rating" value="1">Very Bad
+                        <br>
+                        <input type="radio" name="rating" value="2">Bad
+                        <br>
+                        <input type="radio" name="rating" value="3">Normal
+                        <br>
+                        <input type="radio" name="rating" value="4">Good
+                        <br>
+                        <input type="radio" name="rating" value="5">Excellent
+                        <br>
+                        <input type="submit" id="submit">
+                    </form>
+                </div>
+            </fieldset>
 
         </div>
 
 
+        <div class="right">
+            <b>This URLs reputation :</b> 
+            <br> <span id="score"></span> out of 5
 
-        <div class=right>
-             <b>This URL's reputation :</b> <span id="url"></span> out of 5
+            <div class="panel">
+                <div class="ctrl">
+                    <span id="test" class="chart" data-percent="output">
+                        <span class="percent"></span>
+                    </span>
 
-             <div class="panel">
-              <div class="ctrl">
-                <span>_</span>
-                <span>&times;</span>
-              </div>
-              
-              <div class="chart">
-                <div class="chart" data-percent="73">73%</div>
-                <div class="label">New visits</div>
-              </div>
-              
-        
+                </div>
 
             </div>
 
         </div>
-
-
-
-
-
-
-
-        <p class=auto></p>
     </div>
-    
-    <div class=footer>
-        <p> © 2016 -  <a href=# id=about class=float-right target=_blank></a>
-        </p>
+    <p class="auto"></p>
     </div>
-    
-    <div class=hrv></div>
+
+    <script src="jquery.easing.min.js"></script>
+    <script src="jquery.easypiechart.min.js"></script>
 </body>
-<script type="text/javascript">
-$(function() {
-    $('.chart').easyPieChart({
-        //your configuration goes here
-    });
-});
-</script>
-</html>
-
-

@@ -1,35 +1,109 @@
 // window.onload = function() {
-// 	document.write('Hello world')
+//  document.write('Hello world')
 // }
+
+
+
 
 // get current tab url
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     var currentUrl = tabs[0].url;
-    document.getElementById('url').innerHTML = currentUrl;
+    //  chrome.tabs.getSelected(null, function(tab) {
+    // var currentUrl = document.getElementById('url').innerHTML = tab.url;
+     // console.log(tab.url);
+    // });
+    // document.getElementById('url').innerHTML = currentUrl;
     // alert(url);
     var apiUrlToHit = "https://sustcse12.xyz/api/trs/show";
     var linkToBeSent = encodeURIComponent(currentUrl);
-    var finalURL = apiUrlToHit+linkToBeSent;
+    var finalURL = apiUrlToHit+'?link='+linkToBeSent;
     console.log(finalURL);
     $.ajax({
-	    url:  finalURL,
-	    dataType: "json",
-	    type : "POST",
-	    success : function(response) {
-	      console.log(response);
-	      document.getElementById('score').innerHTML = response.score;
-	    },
-	    error : function(response) {
-	    	console.log(response);
-	    }
-  	});
+        type : "POST",
+        url:  apiUrlToHit,
+        data: { link: linkToBeSent },
+        dataType: "json", 
+        success : function(response) {
+          console.log(response);
+          document.getElementById('score').innerHTML = response.score;
+
+            var changeq = response.score * 20;
+            console.log(changeq);    
+            $('#test').attr('data-percent', changeq);
+            
+          
+        },
+        error : function(response) {
+            console.log(response);
+            console.log(response.responseText);
+        }
+    });
+
+    $("#submit").click(function(e){
+        // e.preventDefault();
+
+        var formData = $('form#formOfRating').serialize();
+        var gg = $('form#formOfRating').find('input[name="rating"]:checked').val();
+        var apiUrlToHit = "https://sustcse12.xyz/api/trs/post";
+ 
+        // console.log(formData);
+        var dataToBeSent = {
+            'rating': gg,
+            'link' : linkToBeSent
+        }
+        // console.log(formData);
+        // console.log('djkf');
+        // // formData['url'] = linkToBeSent;
+
+        // console.log(gg);
+
+        // console.log(dataToBeSent);
+        // $.extend(true, formData, newdata);
+
+        // alert(linkToBeSent);
+        // alert(currentUrl);
+
+        // console.log(newdata);
+        // alert(dataToBeSent);
+        // alert(apiUrlToHit);
+        // $('#formDiv').html("<p>Hi</p>");
+        $.ajax({
+            type: "POST",
+            url: apiUrlToHit,
+            data: dataToBeSent,
+            dataType: 'json',
+          
+            success: function(response){
+                console.log('ok success');
+                console.log(response);
+                // if(response.status_code == '201') {
+                    var message = response.success;
+                    console.log(message);
+                    var message = 'Thank your for your rating. ' + '<br/><a class="btn btn-error btn-xs"  href="review.html">Any Comment??</a> <br> OR <br/> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a>';
+                    
+                    // $('#formDiv').html('');
+                    $('#formDiv').html(message);
+                // }
+            },
+            error: function(response){
+                console.log(response);
+                console.log('Not ok, Failed');
+                // var message = 'Something Went Wrong';
+                var message = "";
+                // console.log(response);      
+            }
+        }); // end of ajax
+    }); 
 
 });
 
- //      chrome.tabs.getSelected(null, function(tab) {
- //    var pageUrl = document.getElementById('url').innerHTML = tab.url;
- //    	console.log(tab.url);
-	// });
+      
+
+
+  chrome.tabs.getSelected(null, function(tab) {
+    var pageUrl = document.getElementById('url').innerHTML = tab.url;
+     console.log(tab.url);
+    });
 
 
 /**
@@ -41,55 +115,55 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
  * @apiSuccess {Float}  score Score of the Requested URL.
  */
 
-				$("#submit").click(function(e){
-                    e.preventDefault();
+                // $("#submit").click(function(e){
+    //                 e.preventDefault();
 
-                    var $form = $(this);
-                    // var $target = $($form.attr('data-target'));
-                    var apiUrlToHit = "https://sustcse12.xyz/api/trs/post";
-                    var dataToBeSent = $('form#formOfRating').serialize();
-                    console.log(dataToBeSent);
-                    // $.ajax({
-                    //     type: "POST",
-                    //     url: apiUrlToHit,
-                    //     data: $('form#formOfRating').serialize(),
-                    //     dataType: 'json',
-                        // function(data) {
-                            // console.log(data);
-                        // },
-                        // success: function(response){
-                        //     console.log('ok success');
-                        //     console.log(response);
-                        //     // if(response.status_code == '201') {
-                        //      	// var message = 'Successfull';
-                        //         var message = response.message;
-                        //         $('#success').html('');
-                        //         $('#success').html(message);
-                        //     // }
-                        // },
-                        // error: function(response){
-                        //     console.log('Not ok, Failed');
-                        //     // var message = 'Something Went Wrong';
-                        //     var message = "";
-                        //     console.log(response);      
-                //         // }
-                //     }); // end of ajax
-                }); // end of submit button click 
-
-
+    //                 var $form = $(this);
+    //                 // var $target = $($form.attr('data-target'));
+    //                 var apiUrlToHit = "https://sustcse12.xyz/api/trs";
+    //                 var dataToBeSent = $('form#formOfRating').serialize();
+    //                 console.log(dataToBeSent);
+    //                 $.ajax({
+    //                     type: "POST",
+    //                     url: apiUrlToHit,
+    //                     data: dataToBeSent,
+    //                     dataType: 'json',
+    //                     function(data) {
+    //                         console.log(data);
+    //                     },
+    //                     success: function(response){
+    //                         console.log('ok success');
+    //                         console.log(response);
+    //                         // if(response.status_code == '201') {
+    //                              // var message = 'Successfull';
+    //                             var message = response.message;
+    //                             $('#success').html('');
+    //                             $('#success').html(message);
+    //                         // }
+    //                     },
+    //                     error: function(response){
+    //                         console.log('Not ok, Failed');
+    //                         // var message = 'Something Went Wrong';
+    //                         var message = "";
+    //                         console.log(response);      
+    //                     }
+    //                 }); // end of ajax
+    //             }); // end of submit button click 
 
 
-/**
- * Built with the jQuery plugin that was born as a result of the great dribble shot
- * http://rendro.github.io/easy-pie-chart/
- **/
-$('.percentage').easyPieChart({
-  animate: 1000,
-  lineWidth: 4,
-  onStep: function(value) {
-    this.$el.find('span').text(Math.round(value));
-  },
-  onStop: function(value, to) {
-    this.$el.find('span').text(Math.round(to));
-  }
-});
+
+ 
+    $(function() {
+        $('.chart').easyPieChart({
+            easing: 'easeOutBounce',
+            onStep: function(from, to, percent) {
+                $(this.el).find('.percent').text(Math.round(percent));
+            }
+        });
+        
+    });
+   
+
+function goBack() {
+    window.history.back();
+}

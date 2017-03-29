@@ -2,23 +2,26 @@
   "manifest_version": 2,
 
   "name": "Trust & Reputation System",
-  "description": "This extension catches all the link for the current page",
+  "description": "Goal is to take user review for online contents",
   "version": "1.0",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "https://sustcse12.xyz/api/trs/post",
+    "https://sustcse12.xyz/api/trs/show"
   ],
+  
 
-  // "content_scripts": [
-  //   {
-  //     "matches": ["<all_urls>"],
-  //     "js": ["jquery-3.1.1.min.js", "myscript.js"],
-  //     "run_at": "document_end" // ‘document_end’ after DOM complete but before images 
-  //   }
-  // ],
-  // "background": {
-  //       "persistent": false,
-  //       "scripts": ["background.js"]
-  //   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jquery-3.1.1.min.js", "jquery.easing.min.js","jquery.easypiechart.js" ],
+      "run_at": "document_end" // ‘document_end’ after DOM complete but before images 
+    }
+  ],
+  "background": {
+        "persistent": false,
+        "scripts": ["background.js","jquery.easypiechart.js"]
+    },
 
   "browser_action": {
     // "default_icon": "icon.png",
