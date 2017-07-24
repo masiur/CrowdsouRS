@@ -39,6 +39,8 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         }
     });
 
+
+
     $("#submit").click(function(e){
         // e.preventDefault();
 
@@ -95,9 +97,65 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         }); // end of ajax
     }); 
 
+
+
+
+
+/** For Review Section */
+
+ $("#submit1").click(function(e){
+        // e.preventDefault();
+
+        var formData = $('form#formOfReview').serialize();
+        var gg = $('form#formOfReview').find('input[name="content"]').val();
+        var apiUrlToHit = "https://sustcse12.xyz/api/trs/postReview";
+ 
+      
+        var dataToBeSent = {
+            'content': formData,
+            'link' : linkToBeSent
+        }
+       
+        $.ajax({
+            type: "POST",
+            url: apiUrlToHit,
+            data: dataToBeSent,
+            dataType: 'json',
+          
+            success: function(response){
+                console.log('ok success');
+                console.log(response);
+                // if(response.status_code == '201') {
+                    var message = response.success;
+                    console.log(message);
+                    var message = 'Thank your for your Contribution to make the Web more reliable. <br><br>';
+                    
+                    // $('#formDiv').html('');
+                    $('#formReview').html(message);
+                // }
+            },
+            error: function(response){
+                console.log(response);
+                console.log('Not ok, Failed');
+                // var message = 'Something Went Wrong';
+                var message = "";
+                // console.log(response);      
+            }
+        }); // end of ajax
+    }); 
+
+
+
+
 });
 
       
+
+
+
+
+
+
 
 
   chrome.tabs.getSelected(null, function(tab) {
@@ -167,3 +225,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 function goBack() {
     window.history.back();
 }
+
+
+
+
