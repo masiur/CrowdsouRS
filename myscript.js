@@ -106,15 +106,24 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
  $("#submit1").click(function(e){
         // e.preventDefault();
 
-        var formData = $('form#formOfReview').serialize();
-        var gg = $('form#formOfReview').find('input[name="content"]').val();
-        var apiUrlToHit = "https://sustcse12.xyz/api/trs/postReview";
- 
-      
-        var dataToBeSent = {
-            'content': formData,
-            'link' : linkToBeSent
-        }
+
+
+    var values = {};
+
+    $.each($("form#formOfReview").serializeArray(), function (i, field) {
+        values[field.name] = field.value;
+    });
+
+    var getValue = function (valueName) {
+        return values[valueName];
+    };
+
+    var review = getValue("content");
+    var apiUrlToHit = "https://sustcse12.xyz/api/trs/postReview";
+    var dataToBeSent = {
+        'content': review,
+        'link' : linkToBeSent
+    }
        
         $.ajax({
             type: "POST",
