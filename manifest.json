@@ -6,8 +6,8 @@
   "version": "2.0",
   "permissions": [
     "activeTab",
-    "https://sustcse12.xyz/api/trs/post",
-    "https://sustcse12.xyz/api/trs/show"
+    "http://localhost:8000/api/trs/post",
+    "http://localhost:8000/api/trs/show"
   ],
   
 

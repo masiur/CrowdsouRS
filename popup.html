@@ -14,7 +14,7 @@
 <body>
 
     <div class="header">
-        <img id="popupIcon" src="icon.png" alt="icon">
+        <!-- <img id="popupIcon" src="icon.png" alt="icon"> -->
         <h1>Trust & Reputation System</h1>
     </div>
 
@@ -35,17 +35,17 @@
                 <div id="formDiv">
                     <form action="#" method="post" id="formOfRating">
                         <!-- <input type="_hidden" name="link"> -->
-                        <input type="radio" name="rating" value="1">Very Bad
+                        <input type="radio" name="rating" value="1">Very Untrustworthy
                         <br>
-                        <input type="radio" name="rating" value="2">Bad
+                        <input type="radio" name="rating" value="2">Untrustworthy
                         <br>
-                        <input type="radio" name="rating" value="3">Normal
+                        <input type="radio" name="rating" value="3">Average
                         <br>
-                        <input type="radio" name="rating" value="4">Good
+                        <input type="radio" name="rating" value="4">Trustworthy
                         <br>
-                        <input type="radio" name="rating" value="5">Excellent
+                        <input type="radio" name="rating" value="5">VeryTrustworthy
                         <br>
-                        <input type="submit" id="submit">
+                        <input type="submit" class="btn btn-success" id="submit">
                     </form>
                 </div>
             </fieldset>
@@ -54,17 +54,19 @@
 
 
         <div class="right">
-            <b>This URLs reputation :</b> 
+            <b>This URL's Reputation :</b> 
             <br> <span id="score"></span> out of 5
 
             <div class="panel">
-                <div class="ctrl">
+                <div class="ctrl" fixed>
                     <span id="test" class="chart" data-percent="output">
                         <span class="percent"></span>
                     </span>
 
                 </div>
-
+            </div>
+            <div style="padding-top: 111px; padding-left: 19px;">
+                <a class="btn btn-info btn-focus btn-hover" href="pastreviews.html"><strong>Reviews</strong></a>
             </div>
 
         </div>
@@ -72,6 +74,6 @@
     <p class="auto"></p>
     </div>
 
-    <script src="jquery.easing.min.js"></script>
-    <script src="jquery.easypiechart.min.js"></script>
+    <script src="/jquery.easing.min.js"></script>
+    <script src="/jquery.easypiechart.min.js"></script>
 </body>
