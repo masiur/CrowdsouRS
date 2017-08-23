@@ -37,6 +37,8 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         }
     });
 
+
+
     $("#submit").click(function(e){
         e.preventDefault();
 
@@ -93,6 +95,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         }); // end of ajax
     }); 
 
+    /// Masiur's code
     // getting the reviews from backend
     var apiUrlToHit = "https://sustcse12.xyz/api/trs/showReview";
     var linkToBeSent = encodeURIComponent(currentUrl);
@@ -119,6 +122,8 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         }
     });
 
+
+    // posting review
     $("#submitReview").click(function(e){
         e.preventDefault();
 
@@ -144,7 +149,8 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
                 // if(response.status_code == '201') {
                     var message = response.success;
                     console.log(message);
-                    var message = 'Thank your for your reviews. ' + '<br/><a class="btn btn-error btn-xs"  href="pastreviews.html">Past Reviews??</a> <br> OR <br/> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a>';
+                    var message = 'Thank your for your Contribution to make the Web more reliable ' + '<br/><a class="btn btn-error btn-xs"  href="pastreviews.html">Past Reviews??</a> <br> OR <br/> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a>';
+
                     
                     // $('#formDiv').html('');
                     $('#formReview').html(message);
@@ -159,15 +165,26 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
             }
         }); // end of ajax
     }); 
+
+
+
+
+
 });
 
       
 
 
-  chrome.tabs.getSelected(null, function(tab) {
-    var pageUrl = document.getElementById('url').innerHTML = tab.url;
-     console.log(tab.url);
-    });
+
+
+
+
+
+
+  // chrome.tabs.getSelected(null, function(tab) {
+  //   var pageUrl = document.getElementById('url').innerHTML = tab.url;
+  //    console.log(tab.url);
+  //   });
 
 
 /**
@@ -231,3 +248,77 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 function goBack() {
     window.history.back();
 }
+
+
+
+
+
+
+
+
+
+
+/** For Review Section */
+
+//  $("#submit1").click(function(e){
+//         // e.preventDefault();
+
+
+
+//     var values = {};
+
+//     $.each($("form#formOfReview").serializeArray(), function (i, field) {
+//         values[field.name] = field.value;
+//     });
+
+//     var getValue = function (valueName) {
+//         return values[valueName];
+//     };
+
+//     var review = getValue("content");
+//     var apiUrlToHit = "https://sustcse12.xyz/api/trs/postReview";
+//     var dataToBeSent = {
+//         'content': review,
+//         'link' : linkToBeSent
+//     }
+       
+// >>>>>>> cd6b9d8e58b30a80c7035e1ff9b5debc4801a419
+//         $.ajax({
+//             type: "POST",
+//             url: apiUrlToHit,
+//             data: dataToBeSent,
+//             dataType: 'json',
+          
+//             success: function(response){
+//                 console.log('ok success');
+//                 console.log(response);
+//                 // if(response.status_code == '201') {
+//                     var message = response.success;
+//                     console.log(message);
+// <<<<<<< HEAD
+//                     var message = 'Thank your for your reviews. ' + '<br/><a class="btn btn-error btn-xs"  href="pastreviews.html">Past Reviews??</a> <br> OR <br/> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a>';
+// =======
+//                     var message = 'Thank your for your Contribution to make the Web more reliable. <br><br>';
+// >>>>>>> cd6b9d8e58b30a80c7035e1ff9b5debc4801a419
+                    
+//                     // $('#formDiv').html('');
+//                     $('#formReview').html(message);
+//                 // }
+//             },
+//             error: function(response){
+//                 console.log(response);
+//                 console.log('Not ok, Failed');
+//                 // var message = 'Something Went Wrong';
+//                 var message = "";
+//                 // console.log(response);      
+//             }
+//         }); // end of ajax
+//     }); 
+// <<<<<<< HEAD
+// =======
+
+
+
+
+// >>>>>>> cd6b9d8e58b30a80c7035e1ff9b5debc4801a419
+// });
