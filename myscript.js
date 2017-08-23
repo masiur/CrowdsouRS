@@ -10,7 +10,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     // var currentUrl = document.getElementById('url').innerHTML = tab.url;
      // console.log(tab.url);
     // });
-    // document.getElementById('url').innerHTML = currentUrl;
+    document.getElementById('url').innerHTML = currentUrl;
     // alert(url);
     var apiUrlToHit = "https://sustcse12.xyz/api/trs/show";
     var linkToBeSent = encodeURIComponent(currentUrl);
