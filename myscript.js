@@ -111,9 +111,10 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
           // document.getElementById('reviews').innerHTML = response.review;
             htmlData = '';
           $.each(response.review, function(index, singleReview){
-                               htmlData += '<p>'+singleReview.content+'</p>';
-                               
-                            });
+                 if (singleReview.content == '') { return true; }   
+               htmlData += '<p>'+singleReview.content+'</p>';
+               
+            });
           document.getElementById('reviews').innerHTML = htmlData;
         },
         error : function(response) {

@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 
+<style type="text/css">
+    span#reviews > p:nth-child(even) { background: #d7dee2; }
+</style>
 <body>
 
     <div class="header">
@@ -32,7 +35,7 @@
         <div>
             <fieldset>
                 <h2><strong>Visitors' Reviews on this URL</strong></h2>
-                <center><a class="btn btn-success" href="review.html">Submit Your Review</a> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a></center>
+                <center><a class="btn btn-success" href="review.html">Submit Your Review</a> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a></center><br>
                     <span id="reviews" style="overflow-y: hidden;"></span>
                 <!-- <div id="formReview">
                     <form action="http://localhost:8000/api/trs/postReview" method="post" id="formOfReview">
