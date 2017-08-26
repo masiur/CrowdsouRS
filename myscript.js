@@ -31,7 +31,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
             var changeq = response.score * 20;
             console.log(changeq);    
             //alert(changeq);
-
+chrome.browserAction.setBadgeBackgroundColor({ color: "#00FF00"});
             $('.chart').data('easyPieChart').update(changeq);
         },
         error : function(response) {

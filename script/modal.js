@@ -1,37 +1,8 @@
-// alert("a");
-
-    // window.onload = function() {
-    //    document.getElementById('url').innerHTML = currentUrl;
-    // 	alert(currentUrl);
-    // }
-
-
-// chrome.tabs.executeScript( null, {code:"var x = 10; x"},
-//    function(results){ 
-//    	console.log(results); 
-//    	alert(results);
-//    } );
-
-
-
-
-
-
-// $(function() {
-  
-
-// });
-
-
 
 // get current tab url
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     var currentUrl = tabs[0].url;
      document.getElementById('url').innerHTML = currentUrl;
-
-
-
-
 
     var apiUrlToHit = "http://localhost:8000/api/trs/chart";
     var linkToBeSent = encodeURIComponent(currentUrl);
@@ -43,9 +14,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         data: { link: linkToBeSent },
         dataType: "json", 
         success : function(response) {
-          
-
-
+         
         //pie chart
           new Chart(document.getElementById("myChart"), {
             type: 'pie',
@@ -65,10 +34,6 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
               legend: {position: 'bottom'}
             }
         });
-
-
-
-  
            
         },
         error : function(response) {
@@ -79,6 +44,17 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
 
 
-
-
     });
+
+
+
+
+
+
+
+
+
+
+
+
+

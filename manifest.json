@@ -8,6 +8,7 @@
     "activeTab",
     "tabs",
     "webNavigation",
+    "contextMenus",
     "*://*/*",
     "http://localhost:8000/api/trs/post",
     "http://localhost:8000/api/trs/show"
@@ -23,7 +24,8 @@
   ],
   "background": {
         "persistent": false,
-        "scripts": ["background.js"]
+        "scripts": ["script/jquery-3.1.1.min.js","background.js"],
+         "pages": ["background.html"]
     },
 
   "browser_action": {
