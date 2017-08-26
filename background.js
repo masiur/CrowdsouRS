@@ -5,7 +5,7 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
        console.log("aa111111aa");
 
 
-  	    var apiUrlToHit = "https://sustcse12.xyz/api/trs/back";
+  	    var apiUrlToHit = "http://localhost:8000/api/trs/back";
 		var linkToBeSent = encodeURIComponent(tab.url);
 		var finalURL = apiUrlToHit+'?link='+linkToBeSent;
 	

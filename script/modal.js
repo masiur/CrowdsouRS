@@ -4,7 +4,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     var currentUrl = tabs[0].url;
      document.getElementById('url').innerHTML = currentUrl;
 
-    var apiUrlToHit = "https://sustcse12.xyz/api/trs/chart";
+    var apiUrlToHit = "http://localhost:8000/api/trs/chart";
     var linkToBeSent = encodeURIComponent(currentUrl);
     var finalURL = apiUrlToHit+'?link='+linkToBeSent;
     console.log(finalURL);

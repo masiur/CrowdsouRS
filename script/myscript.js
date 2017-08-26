@@ -13,7 +13,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
    * Front Page Script(popup)
    * Score / Graph/ decision Showing
    **/
-    var apiUrlToHit = "https://sustcse12.xyz/api/trs/show";
+    var apiUrlToHit = "http://localhost:8000/api/trs/show";
     var linkToBeSent = encodeURIComponent(currentUrl);
     var finalURL = apiUrlToHit+'?link='+linkToBeSent;
     console.log(finalURL);
@@ -65,6 +65,36 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
 
 
+
+
+  /**
+   * Domain Reputation
+   * 
+   **/
+    var apiUrlToHit = "http://localhost:8000/api/trs/domainCheck";
+    var linkToBeSent = encodeURIComponent(currentUrl);
+    var finalURL = apiUrlToHit+'?link='+linkToBeSent;
+    console.log(finalURL);
+    $.ajax({
+        type : "POST",
+        url:  apiUrlToHit,
+        data: { link: linkToBeSent },
+        dataType: "json", 
+        success : function(response) {
+          console.log(response);
+          //front page score
+          document.getElementById('domain').innerHTML = response.domain;
+          document.getElementById('reputation').innerHTML = response.reputation;
+
+        },
+        error : function(response) {
+            console.log(response);
+            console.log(response.responseText);
+        }
+    });
+
+
+
     
 
 
@@ -78,7 +108,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
         var formData = $('form#formOfRating').serialize();
         var gg = $('form#formOfRating').find('input[name="rating"]:checked').val();
-        var apiUrlToHit = "https://sustcse12.xyz/api/trs/post";
+        var apiUrlToHit = "http://localhost:8000/api/trs/post";
  
         // console.log(formData);
         var dataToBeSent = {
@@ -121,7 +151,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
    * getting the reviews from backend
    * 
    **/
-    var apiUrlToHit = "https://sustcse12.xyz/api/trs/showReview";
+    var apiUrlToHit = "http://localhost:8000/api/trs/showReview";
     var linkToBeSent = encodeURIComponent(currentUrl);
     var finalURL = apiUrlToHit+'?link='+linkToBeSent;
     console.log(finalURL);
@@ -164,7 +194,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         var reviewData = $('#reviewData').val();
         var reviewName = $('#reviewName').val();
 
-        var apiUrlToHit = "https://sustcse12.xyz/api/trs/postReview";
+        var apiUrlToHit = "http://localhost:8000/api/trs/postReview";
  
         // console.log(formData);
         var dataToBeSent = {
