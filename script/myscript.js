@@ -15,7 +15,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     // });
     document.getElementById('url').innerHTML = currentUrl;
     // alert(url);
-    var apiUrlToHit = "http://localhost:8000/api/trs/show";
+    var apiUrlToHit = "https://sustcse12.xyz/api/trs/show";
     var linkToBeSent = encodeURIComponent(currentUrl);
     var finalURL = apiUrlToHit+'?link='+linkToBeSent;
     console.log(finalURL);
@@ -47,7 +47,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
         var formData = $('form#formOfRating').serialize();
         var gg = $('form#formOfRating').find('input[name="rating"]:checked').val();
-        var apiUrlToHit = "http://localhost:8000/api/trs/post";
+        var apiUrlToHit = "https://sustcse12.xyz/api/trs/post";
  
         // console.log(formData);
         var dataToBeSent = {
@@ -103,7 +103,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
     /// Masiur's code
     // getting the reviews from backend
-    var apiUrlToHit = "http://localhost:8000/api/trs/showReview";
+    var apiUrlToHit = "https://sustcse12.xyz/api/trs/showReview";
     var linkToBeSent = encodeURIComponent(currentUrl);
     var finalURL = apiUrlToHit+'?link='+linkToBeSent;
     console.log(finalURL);
@@ -138,7 +138,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         var reviewData = $('#reviewData').val();
         var reviewName = $('#reviewName').val();
 
-        var apiUrlToHit = "http://localhost:8000/api/trs/postReview";
+        var apiUrlToHit = "https://sustcse12.xyz/api/trs/postReview";
  
         // console.log(formData);
         var dataToBeSent = {

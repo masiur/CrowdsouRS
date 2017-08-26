@@ -10,8 +10,8 @@
     "webNavigation",
     "contextMenus",
     "*://*/*",
-    "http://localhost:8000/api/trs/post",
-    "http://localhost:8000/api/trs/show"
+    "https://sustcse12.xyz/api/trs/post",
+    "https://sustcse12.xyz/api/trs/show"
   ],
   
 
