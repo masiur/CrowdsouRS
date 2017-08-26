@@ -3,12 +3,13 @@
 
 <head>
     <title>Trust & Reputation System</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="jquery-3.1.1.min.js"></script>
-    <script src="myscript.js"></script>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="script/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="script/myscript.js"></script>
     <link rel="stylesheet" href="styles/bundle.css">
     <link rel="stylesheet" href="styles/mystyle.css">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
 </head>
 
 <body>
@@ -29,26 +30,49 @@
         <h2 id="host"></h2>
 
 
-        <div>
-            <fieldset>
-                <legend><p>Review on this URL:</p></legend>
-                <div id="formReview">
-                    <form action="https://sustcse12.xyz/api/trs/postReview" method="post" id="formOfReview">
-                        
-                        <div class="form-group">
-                            <label for="review">Comment:</label>
-                            <textarea id="reviewData" name="review" class="form-control vresize" required></textarea>
+
+         <ul class="nav nav-tabs">
+               <li><a data-toggle="tab1"  href="popup.html">Home</a></li>
+                <li class="active"><a data-toggle="tab1"  href="#">Reviews</a></li>
+              </ul><br>
+
+              <div class="tab-content">
+                 <div id="home" class="tab-pane fade in active">
+
+
+
+                <div>
+                    <fieldset>
+                        <legend><p>Review on this URL:</p></legend>
+                        <div id="formReview">
+                            <form action="http://localhost:8000/api/trs/postReview" method="post" id="formOfReview">
+                                
+
+                                 <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input id="reviewName" name="name" class="form-control vresize" required></input>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="review">Comment:</label>
+                                    <textarea id="reviewData" name="review" class="form-control vresize" required></textarea>
+                                </div>
+
+                                  <button type="submit" id="submitReview" class="btn btn-default">Submit</button>
+                                  <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a></center>
+                            </form>
                         </div>
-                          <button type="submit" id="submitReview" class="btn btn-default">Submit</button>
-                    </form>
+                    </fieldset>
                 </div>
-            </fieldset>
+
+
+          </div>
         </div>
-
-
     </div>
-    <p class="auto"></p>
-    </div>
+    <!-- end of tab -->
+
+   
 
     
 </body>

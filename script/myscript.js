@@ -82,7 +82,7 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
                 // if(response.status_code == '201') {
                     var message = response.success;
                     console.log(message);
-                    var message = '<div class="text-center">Thank your for your rating. ' + '<br/><a class="btn btn-error btn-xs"  href="review.html">Any Comment??</a> <br> OR <br/> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a></div>';
+                    var message = 'Thank your for your rating. ' + '<br/><a class="btn btn-error btn-xs"  href="review.html">Any Comment??</a> <br> OR <br/> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a>';
                     
                     // $('#formDiv').html('');
                     $('#formDiv').html(message);

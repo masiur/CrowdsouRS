@@ -3,12 +3,18 @@
 
 <head>
     <title>Trust & Reputation System</title>
+
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="jquery-3.1.1.min.js"></script>
-    <script src="myscript.js"></script>
+    <script src="script/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="script/myscript.js"></script>
     <link rel="stylesheet" href="styles/bundle.css">
     <link rel="stylesheet" href="styles/mystyle.css">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    
+    
+    
+
 </head>
 
 <body>
@@ -24,33 +30,39 @@
     </div>
 
 
-
+    <!-- tab -->
     <div class="kconnect box">
         <h2 id="host"></h2>
 
 
-        <div>
-            <fieldset>
-                <h2><strong>Visitors' Reviews on this URL</strong></h2>
-                <center><a class="btn btn-success" href="review.html">Submit Your Review</a> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a></center>
-                    <span id="reviews" style="overflow-y: hidden;"></span>
-                <!-- <div id="formReview">
-                    <form action="http://localhost:8000/api/trs/postReview" method="post" id="formOfReview">
-                        
-                        <div class="form-group">
-                            <label for="review">Comment:</label>
-                            <textarea name="review" class="form-control vresize"></textarea>
-                        </div>
-                          <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </div> -->
-            </fieldset>
+             <ul class="nav nav-tabs">
+               <li><a data-toggle="tab1"  href="popup.html">Home</a></li>
+                <li class="active"><a data-toggle="tab1"  href="#">Reviews</a></li>
+              </ul><br>
+
+              <div class="tab-content">
+                 <div id="home" class="tab-pane fade in active">
+
+
+
+                <div>
+                    <fieldset>
+                        <h2><strong>Visitors' Reviews on this URL</strong></h2>
+                        <center><a class="btn btn-success btn-xs" href="review.html">Submit Your Review</a> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a></center><br>
+                        <div style=" height:200px; overflow: auto;" >
+                            <span id="reviews" style="overflow-y: hidden;"></span>
+                         </div>
+                    </fieldset>
+                </div>
+
+
+    
+            </div>
         </div>
-
-
     </div>
-    <p class="auto"></p>
-    </div>
+    <!-- end of tab -->
+
+   
 
     
 </body>

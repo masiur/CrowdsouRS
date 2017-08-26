@@ -6,6 +6,9 @@
   "version": "2.0",
   "permissions": [
     "activeTab",
+    "tabs",
+    "webNavigation",
+    "*://*/*",
     "http://localhost:8000/api/trs/post",
     "http://localhost:8000/api/trs/show"
   ],
@@ -14,13 +17,13 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["jquery-3.1.1.min.js", "jquery.easing.min.js","jquery.easypiechart.js" ],
+      "js": ["script/jquery-3.1.1.min.js", "script/jquery.easing.min.js","script/jquery.easypiechart.js" ,"script/modal.js"],
       "run_at": "document_end" // ‘document_end’ after DOM complete but before images 
     }
   ],
   "background": {
         "persistent": false,
-        "scripts": ["background.js","jquery.easypiechart.js"]
+        "scripts": ["background.js"]
     },
 
   "browser_action": {
@@ -28,5 +31,6 @@
     "default_popup": "popup.html",
     "default_title": "TRS"
   }
+  
   
 }

@@ -3,12 +3,11 @@
 
 <head>
     <title>Trust & Reputation System</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="jquery-3.1.1.min.js"></script>
-    <script src="myscript.js"></script>
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/bundle.css">
     <link rel="stylesheet" href="styles/mystyle.css">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
 </head>
 
 <body>
@@ -25,56 +24,80 @@
 
 
 
-    <div class="kconnect box">
-        <h2 id="host"></h2>
+       <!-- tab -->
+        <div class="kconnect box">
+            <h2 id="host"></h2>
+
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                <li><a data-toggle="tab1"  href="pastreviews.html">Reviews</a></li>
+              </ul><br>
+
+              <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
 
 
-        <div class="left">
-            <fieldset>
-                <legend>Rate this URL:</legend>
-                <div id="formDiv">
-                    <form action="#" method="post" id="formOfRating">
-                        <!-- <input type="_hidden" name="link"> -->
-                        <input type="radio" name="rating" value="1">Very Untrustworthy
-                        <br>
-                        <input type="radio" name="rating" value="2">Untrustworthy
-                        <br>
-                        <input type="radio" name="rating" value="3">Average
-                        <br>
-                        <input type="radio" name="rating" value="4">Trustworthy
-                        <br>
+                        <!-- content -->
+                        <div class="left">
+                            <fieldset>
+                                <legend>Rate this URL:</legend>
+                                <div class="text-left" id="formDiv">
+                                    <form action="#" method="post" id="formOfRating">
+                                        <!-- <input type="_hidden" name="link"> -->
+                                        <input type="radio" name="rating" value="1">Very Untrustworthy
+                                        <br>
+                                        <input type="radio" name="rating" value="2">Untrustworthy
+                                        <br>
+                                        <input type="radio" name="rating" value="3">Average
+                                        <br>
+                                        <input type="radio" name="rating" value="4">Trustworthy
+                                        <br>
+                                        <input type="radio" name="rating" value="5">Very Trustworthy
+                                        <br><br>
+                                        <input type="submit" class="btn btn-xs btn-success" id="submit">
+                                    </form>
+                                </div>
+                            </fieldset>
+                        </div>
 
-                        <input type="radio" name="rating" value="5">Very Trustworthy
-                        <br>
-                        <input type="submit" class="btn btn-success" id="submit">
-                    </form>
-                </div>
-            </fieldset>
-
-        </div>
 
 
-        <div class="right">
-            <b>This URL's Reputation :</b> 
-            <br> <span id="score"></span> out of 5
 
-            <div class="panel">
-                <div class="ctrl" fixed>
-                    <span id="test" class="chart" data-percent="output">
-                        <span class="percent"></span>
-                    </span>
+                        <div class="right"><br>
+                            <b>This URL's Reputation :</b> 
+                            <br> <span id="score"></span> out of 5
 
-                </div>
+                            <div class="panel">
+                                <div class="ctrl" fixed>
+                                    <span class="chart pull-right" data-percent="45" id="_percentUpdate">
+                                        <div class="flip-container">
+                                          <div class="flipper" onclick="this.classList.toggle('flipped')" id="conserHoursFlip">
+                                           <div class="back percent"></div>
+                                          </div>
+                                        </div>                                              
+                                    <span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end of content -->
+
+
             </div>
-            <div style="padding-top: 111px; padding-left: 19px;">
-                <a class="btn btn-info btn-focus btn-hover" href="pastreviews.html"><strong>Reviews</strong></a>
-            </div>
-
         </div>
     </div>
-    <p class="auto"></p>
-    </div>
+    <!-- end of tab -->
 
-    <script src="/jquery.easing.min.js"></script>
-    <script src="/jquery.easypiechart.min.js"></script>
+     
+
+
+
+
+
+
+  <script src="script/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="script/myscript.js"></script>
+    <script src="script/jquery.easing.min.js"></script>
+    <script src="script/jquery.easypiechart.min.js"></script>
 </body>
+</html>
