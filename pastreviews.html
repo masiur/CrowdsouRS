@@ -17,6 +17,9 @@
 
 </head>
 
+<style type="text/css">
+    span#reviews > p:nth-child(even) { background: #d7dee2; }
+</style>
 <body>
 
     <div class="header">
@@ -35,10 +38,12 @@
         <h2 id="host"></h2>
 
 
+
              <ul class="nav nav-tabs">
                <li><a data-toggle="tab1"  href="popup.html">Home</a></li>
                 <li class="active"><a data-toggle="tab1"  href="#">Reviews</a></li>
               </ul><br>
+
 
               <div class="tab-content">
                  <div id="home" class="tab-pane fade in active">
@@ -49,7 +54,7 @@
                     <fieldset>
                         <h2><strong>Visitors' Reviews on this URL</strong></h2>
                         <center><a class="btn btn-success btn-xs" href="review.html">Submit Your Review</a> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a></center><br>
-                        <div style=" height:200px; overflow: auto;" >
+                        <div style=" height:200px; overflow-y: auto;" >
                             <span id="reviews" style="overflow-y: hidden;"></span>
                          </div>
                     </fieldset>

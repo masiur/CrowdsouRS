@@ -117,9 +117,12 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
           // document.getElementById('reviews').innerHTML = response.review;
             htmlData = '';
           $.each(response.review, function(index, singleReview){
-                               htmlData += '<hr><p><b>'+singleReview.name+'</b>: '+singleReview.content+'</p>';
-                               
-                            });
+
+            if (singleReview.content == '') { return true; }   
+               htmlData += '<hr><p><b>'+singleReview.name+'</b>: '+singleReview.content+'</p>';
+               
+            });
+
           document.getElementById('reviews').innerHTML = htmlData;
         },
         error : function(response) {
