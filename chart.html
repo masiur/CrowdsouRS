@@ -3,23 +3,17 @@
 
 <head>
     <title>Trust & Reputation System</title>
-
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="script/jquery-3.1.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="script/modal.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="script/myscript.js"></script>
     <link rel="stylesheet" href="styles/bundle.css">
     <link rel="stylesheet" href="styles/mystyle.css">
     <link rel="stylesheet" href="styles/style.css" />
-    
-    
-    
-
 </head>
 
-<style type="text/css">
-    span#reviews > p:nth-child(even) { background: #d7dee2; }
-</style>
 <body>
 
     <div class="header">
@@ -33,37 +27,24 @@
     </div>
 
 
-    <!-- tab -->
+
     <div class="kconnect box">
         <h2 id="host"></h2>
 
 
 
-              <ul class="nav nav-tabs">
+             <ul class="nav nav-tabs">
                <li><a data-toggle="home"  href="popup.html">Home</a></li>
-                <li class="active"><a data-toggle="tab1"  href="#">Reviews</a></li>
-                <li><a style="margin-left: 100px;" data-toggle="tab2"  href="chart.html">Statistics</a></li>
+                <li><a data-toggle="tab1"  href="pastreviews.html">Reviews</a></li>
+                <li  class="active"><a style="margin-left: 100px;" data-toggle="tab2"  href="#">Statistics</a></li>
               </ul><br>
-
 
               <div class="tab-content">
                  <div id="home" class="tab-pane fade in active">
 
-
-
-                <div>
-                    <fieldset>
-                        <h2><strong>Visitors' Reviews on this URL</strong></h2>
-                        <center><a class="btn btn-success btn-xs" href="review.html">Submit Your Review</a> <a class="btn btn-warning btn-xs"  href="popup.html">Go Back</a></center>
-                        <div style=" height:200px; overflow-y: auto;" >
-                            <span id="reviews" style="overflow-y: hidden;"></span>
-                         </div>
-                    </fieldset>
-                </div>
-
-
-    
-            </div>
+                      <canvas id="myChart" width="500" height="400"></canvas>
+       
+          </div>
         </div>
     </div>
     <!-- end of tab -->

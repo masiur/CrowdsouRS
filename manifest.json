@@ -17,7 +17,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["script/jquery-3.1.1.min.js", "script/jquery.easing.min.js","script/jquery.easypiechart.js" ,"script/modal.js"],
+      "js": ["script/jquery-3.1.1.min.js","script/jquery.easing.min.js","script/jquery.easypiechart.js" ,"script/modal.js"],
       "run_at": "document_end" // ‘document_end’ after DOM complete but before images 
     }
   ],
@@ -30,7 +30,7 @@
     // "default_icon": "icon.png",
     "default_popup": "popup.html",
     "default_title": "TRS"
-  }
+  },
   
-  
+  "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com; object-src 'self'"
 }

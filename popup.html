@@ -29,9 +29,11 @@
             <h2 id="host"></h2>
 
               <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+               <li class="active"><a data-toggle="home"  href="#">Home</a></li>
                 <li><a data-toggle="tab1"  href="pastreviews.html">Reviews</a></li>
+                <li><a style="margin-left: 100px;" data-toggle="tab2"  href="chart.html">Statistics</a></li>
               </ul><br>
+
 
               <div class="tab-content">
                 <div id="home" class="tab-pane fade in active">
@@ -44,15 +46,15 @@
                                 <div class="text-left" id="formDiv">
                                     <form action="#" method="post" id="formOfRating">
                                         <!-- <input type="_hidden" name="link"> -->
-                                        <input type="radio" name="rating" value="1">Very Untrustworthy
+                                        <input type="radio" name="rating" value="1"> Very Untrustworthy
                                         <br>
-                                        <input type="radio" name="rating" value="2">Untrustworthy
+                                        <input type="radio" name="rating" value="2"> Untrustworthy
                                         <br>
-                                        <input type="radio" name="rating" value="3">Average
+                                        <input type="radio" name="rating" value="3"> Average
                                         <br>
-                                        <input type="radio" name="rating" value="4">Trustworthy
+                                        <input type="radio" name="rating" value="4"> Trustworthy
                                         <br>
-                                        <input type="radio" name="rating" value="5">Very Trustworthy
+                                        <input type="radio" name="rating" value="5"> Very Trustworthy
                                         <br><br>
                                         <input type="submit" class="btn btn-xs btn-success" id="submit">
                                     </form>
@@ -65,7 +67,7 @@
 
                         <div class="right"><br>
                             <b>This URL's Reputation :</b> 
-                            <br> <span id="score"></span> out of 5
+                            <br> <b><span style="color: blue" id="score"></span></b> out of 5
 
                             <div class="panel">
                                 <div class="ctrl" fixed>
