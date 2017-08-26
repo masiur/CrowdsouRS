@@ -10,15 +10,15 @@
     "webNavigation",
     "contextMenus",
     "*://*/*",
-    "https://sustcse12.xyz/api/trs/post",
-    "https://sustcse12.xyz/api/trs/show"
+    "http://localhost:8000/api/trs/post",
+    "http://localhost:8000/api/trs/show"
   ],
   
 
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["script/jquery-3.1.1.min.js","script/jquery.easing.min.js","script/jquery.easypiechart.js" ,"script/modal.js"],
+      "js": ["script/jquery.easing.min.js","script/jquery.easypiechart.js" ,"script/modal.js"],
       "run_at": "document_end" // ‘document_end’ after DOM complete but before images 
     }
   ],

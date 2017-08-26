@@ -1,11 +1,11 @@
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
   if (changeInfo.status == 'complete' && tab.active) {
   	  if( tab.url  != 'chrome://newtab/'){
-  	 // alert(tab.url);
+  	   //alert(tab.url);
        console.log("aa111111aa");
 
 
-  	    var apiUrlToHit = "http://localhost:8000/api/trs/back";
+  	    var apiUrlToHit = "http://localhost:8000/api/trs/show";
 		var linkToBeSent = encodeURIComponent(tab.url);
 		var finalURL = apiUrlToHit+'?link='+linkToBeSent;
 	
@@ -18,13 +18,13 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
 		    dataType: "json", 
 		    success : function(response) {
 
-		    	if(response.rscore < 2){
+
+		    	if(response.score < 2){
 		    		alert("This link is Very Untrustworthy.");
                     evt.preventDefault();
 		    	}
 
-                
-		   
+               
 		         
 		    },
 		    error : function(response) {
