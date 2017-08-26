@@ -1,5 +1,5 @@
 
-// get current tab url
+//Chart Js Generate
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     var currentUrl = tabs[0].url;
      document.getElementById('url').innerHTML = currentUrl;

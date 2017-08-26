@@ -1,20 +1,18 @@
-// window.onload = function() {
-//  document.write('Hello world')
-// }
-
-
-
-
 
 // get current tab url
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     var currentUrl = tabs[0].url;
-    //  chrome.tabs.getSelected(null, function(tab) {
-    // var currentUrl = document.getElementById('url').innerHTML = tab.url;
-     // console.log(tab.url);
-    // });
     document.getElementById('url').innerHTML = currentUrl;
     // alert(url);
+
+
+
+
+
+   /**
+   * Front Page Script(popup)
+   * Score / Graph/ decision Showing
+   **/
     var apiUrlToHit = "https://sustcse12.xyz/api/trs/show";
     var linkToBeSent = encodeURIComponent(currentUrl);
     var finalURL = apiUrlToHit+'?link='+linkToBeSent;
@@ -26,13 +24,37 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         dataType: "json", 
         success : function(response) {
           console.log(response);
+
+          //front page score
           document.getElementById('score').innerHTML = response.score;
 
-            var changeq = response.score * 20;
-            console.log(changeq);    
-            //alert(changeq);
+        
+            //front page decision
+            if(response.score >= 4.50 && response.score < 5 ){
+                document.getElementById('decision').innerHTML = "This Web Page is: <b>Very Trustworthy</b>";
+                document.getElementById("decisionId").style.background = "#2ECC71";
+            }
+            else if(response.score >= 4 && response.score < 4.50){
+                 document.getElementById('decision').innerHTML = "This Web Page is: <b>Trustworthy</b>";
+                 document.getElementById("decisionId").style.background = "#ABEBC6";
+            }else if(response.score >= 3 && response.score < 4){
+                document.getElementById('decision').innerHTML = "This Web Page is: <b>Average</b>"; 
+                document.getElementById("decisionId").style.background = "#F9E79F";
+            }
+            else if(response.score >= 2 && response.score < 3){
+                document.getElementById('decision').innerHTML = "This Web Page is: <b>Untrustworthy</b>"; 
+                document.getElementById("decisionId").style.background = "#CD6155";
+            }
+            else if(response.score >= 1 && response.score < 2){
+               document.getElementById('decision').innerHTML = "This Web Page is: <b>Very Untrustworthy</b>";
+               document.getElementById("decisionId").style.background = "#B03A2E"; 
+            }
+            
 
-            $('.chart').data('easyPieChart').update(changeq);
+             //front page chart
+             var changeq = response.score * 20;
+             console.log(changeq);    
+             $('.chart').data('easyPieChart').update(changeq);
         },
         error : function(response) {
             console.log(response);
@@ -42,6 +64,15 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
 
 
+
+    
+
+
+
+   /**
+   * Score Store Section
+   * 
+   **/
     $("#submit").click(function(e){
         e.preventDefault();
 
@@ -54,22 +85,6 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
             'rating': gg,
             'link' : linkToBeSent
         }
-        // console.log(formData);
-        // console.log('djkf');
-        // // formData['url'] = linkToBeSent;
-
-        // console.log(gg);
-
-        // console.log(dataToBeSent);
-        // $.extend(true, formData, newdata);
-
-        // alert(linkToBeSent);
-        // alert(currentUrl);
-
-        // console.log(newdata);
-        // alert(dataToBeSent);
-        // alert(apiUrlToHit);
-        // $('#formDiv').html("<p>Hi</p>");
         $.ajax({
             type: "POST",
             url: apiUrlToHit,
@@ -101,8 +116,11 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
 
 
-    /// Masiur's code
-    // getting the reviews from backend
+    
+  /**
+   * getting the reviews from backend
+   * 
+   **/
     var apiUrlToHit = "https://sustcse12.xyz/api/trs/showReview";
     var linkToBeSent = encodeURIComponent(currentUrl);
     var finalURL = apiUrlToHit+'?link='+linkToBeSent;
@@ -130,7 +148,15 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
 
 
-    // posting review
+
+
+
+
+
+ /**
+   * posting review
+   * 
+   **/
     $("#submitReview").click(function(e){
         e.preventDefault();
 
@@ -187,32 +213,22 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
 
 
-
-
-
-
-  // chrome.tabs.getSelected(null, function(tab) {
-  //   var pageUrl = document.getElementById('url').innerHTML = tab.url;
-  //    console.log(tab.url);
-  //   });
-
-
- 
-    $(function() {
-        $('.chart').easyPieChart({
-            easing: 'easeOutBounce',
-            onStep: function(from, to, percent) {
-                $(this.el).find('.percent').text(Math.round(percent));
-            }
-        });
-        
+//Front Page pie chart
+$(function() {
+    $('.chart').easyPieChart({
+        easing: 'easeOutBounce',
+        onStep: function(from, to, percent) {
+            $(this.el).find('.percent').text(Math.round(percent));
+        }
     });
-   
+    
+});
+
 
 
  
 
-
+//Go Back Function
 function goBack() {
     window.history.back();
 }
