@@ -1,15 +1,24 @@
+// function blockRequest(details) {
+//    return {cancel: true};
+// }
+
+// function updateFilters(urls, test) {
+//    if(chrome.webRequest.onBeforeRequest.hasListener(blockRequest))
+//      chrome.webRequest.onBeforeRequest.removeListener(blockRequest);
+//    chrome.webRequest.onBeforeRequest.addListener(blockRequest, {urls: ["*://*.facebook.com/*", "*://*.facebook.net/*"]}, ['blocking']);
+// }
+
+
+
+
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
   if (changeInfo.status == 'complete' && tab.active) {
   	  if( tab.url  != 'chrome://newtab/'){
-  	   //alert(tab.url);
-       console.log("aa111111aa");
+  	 
 
-
-  	    var apiUrlToHit = "http://localhost:8000/api/trs/show";
+  	    var apiUrlToHit = "https://sustcse12.xyz/api/trs/show";
 		var linkToBeSent = encodeURIComponent(tab.url);
 		var finalURL = apiUrlToHit+'?link='+linkToBeSent;
-	
-
 		$.ajax({
 
 		    type : "POST",
@@ -18,13 +27,27 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
 		    dataType: "json", 
 		    success : function(response) {
 
-
-		    	if(response.score < 2){
-		    		alert("This link is Very Untrustworthy.");
-                    evt.preventDefault();
-		    	}
-
                
+		    	if(response.score < 2){
+                     
+					
+					if (confirm("This URL is Very Untrustworthy. Back to Main Page?") == true) {
+				       
+				        chrome.tabs.getSelected(null, function(tab) {
+						   chrome.tabs.remove(tab.id);
+						 });
+
+				          evt.preventDefault();
+
+				    } else {
+				        
+				    }
+
+
+
+
+                  
+		    	}
 		         
 		    },
 		    error : function(response) {
@@ -35,14 +58,31 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
 
 
 
-
-
   	  }
   }
 })
 
 
 
+
+
+	
+
+
+
+
+
+
+
+
+//full page load
+// _ini();
+// function _ini(){
+//     document.getElementsByTagName("html")[0].style.display="none";
+//     window.onload=function(){
+//         document.getElementsByTagName("html")[0].style.display="block"; //to show it all back again
+//     }
+// }
 
 
 
